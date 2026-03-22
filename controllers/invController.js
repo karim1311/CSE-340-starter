@@ -37,4 +37,21 @@ invCont.buildByInventoryId = async function (req, res, next) {
     })
 }
 
+/* ****************************
+ *  Build error  view
+ * ******************************* */
+invCont.buildErrorView = async function (req, res, next) {
+    const inventory_id = req.params.inventoryId
+    // const div = await utilities.buildDetailsDiv(data)
+    let nav = await utilities.getNav()
+    // const classYear = data.inv_year
+    // const className = data.inv_make
+    // const classModel = data.inv_model
+    res.render("./errors/error", {
+        title:  'Error!!!',
+        nav,
+        // div,
+    })
+}
+
 module.exports = invCont
